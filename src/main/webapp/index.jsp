@@ -30,7 +30,7 @@ https://templatemo.com/tm-556-catalog-z
         <div class="loader-section section-right"></div>
 
     </div>
-    <%@include file="view/layout/navbar.jsp" %>
+    <jsp:include page="view/layout/navbar.jsp" />
 	<jsp:include page="view/layout/SearchSection.jsp"/>
 	<jsp:include page="view/layout/TestMCIndex.jsp"/>
 

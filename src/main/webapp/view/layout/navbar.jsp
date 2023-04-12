@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-
+ <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
 <nav class="navbar navbar-expand-lg">
        <div class="container-fluid">
            <a class="navbar-brand" href="index.html">
@@ -18,12 +19,25 @@
                <li class="nav-item">
                    <a class="nav-link nav-link-2 " aria-current="page" href="videos.html">Video Yêu Thích</a>
                </li>
-               <li class="nav-item">
-                   <a class="nav-link nav-link-3" href="register.html">Đăng Ký</a>
-               </li>
-               <li class="nav-item">
-                   <a class="nav-link nav-link-4" href="login.html">Đăng Nhập</a>
-               </li>
+                <c:if test="${! isLogin }">
+	                <li class="nav-item">
+	                    <a class="nav-link nav-link-3" href='<c:url value="/view/register.jsp"/>'>Đăng Ký</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link nav-link-4" aria-current="page" href='<c:url value="/view/login.jsp"/>'>Đăng Nhập</a>
+	                </li>
+                </c:if>
+                <c:if test="${isLogin}">
+                	<li class="nav-item">
+	                    <a class="nav-link nav-link-3" href='<c:url value="/view/edit-profile.jsp"/>'>Edit Profile</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link nav-link-4" aria-current="page" href='<c:url value="/view/change-password.jsp"/>'>Change Password</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link nav-link-5" href='<c:url value="LogOffServ"/>'>Log Off</a>
+	                </li>
+                </c:if>
            </ul>
            </div>
        </div>

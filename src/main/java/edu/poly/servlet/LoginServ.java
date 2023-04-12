@@ -54,6 +54,7 @@ public class LoginServ extends HttpServlet {
 				}else {
 					CookieUtils.add("username", form.getUsername(), 0, response);
 				}
+				request.setAttribute("isLogin", true);
 				request.setAttribute("name", user.getName());
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 				return;

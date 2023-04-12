@@ -16,7 +16,7 @@ import edu.poly.utils.SessionUtils;
 /**
  * Servlet Filter implementation class AuthFilter
  */
-@WebFilter("/AuthFilter")
+@WebFilter(urlPatterns = "/*")
 public class AuthFilter implements Filter {
        
 
