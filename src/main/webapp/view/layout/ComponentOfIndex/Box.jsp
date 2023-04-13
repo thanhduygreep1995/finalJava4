@@ -4,7 +4,7 @@
 	<img src="/asmjav4/img/${param.Image}" alt="Image" class="img-fluid">
 	<figcaption class="d-flex align-items-center justify-content-center">
 		<h2>${param.Title}</h2>
-		<a href="${param.link}.html">View more</a>
+		<a href="view/${param.link}.jsp">View more</a>
 	</figcaption>
 </figure>
 <div class="d-flex justify-content-between tm-text-gray">

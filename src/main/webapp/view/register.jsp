@@ -44,12 +44,12 @@ https://templatemo.com/tm-556-catalog-z
 	                    <a class="nav-link nav-link-3 active" href='<c:url value="/view/register.jsp"/>'>Đăng Ký</a>
 	                </li>
 	                <li class="nav-item">
-	                    <a class="nav-link nav-link-4" aria-current="page" href='<c:url value="/view/login.jsp"/>'>Đăng Nhập</a>
+	                    <a class="nav-link nav-link-4" aria-current="page" href='<c:url value="LoginServ"/>'>Đăng Nhập</a>
 	                </li>
                 </c:if>
                 <c:if test="${isLogin}">
                 	<li class="nav-item">
-	                    <a class="nav-link nav-link-3" href='<c:url value="/view/edit-profile.jsp"/>'>Edit Profile</a>
+	                    <a class="nav-link nav-link-3" href='<c:url value="EditProfileServ"/>'>Edit Profile</a>
 	                </li>
 	                <li class="nav-item">
 	                    <a class="nav-link nav-link-4" aria-current="page" href='<c:url value="/view/change-password.jsp"/>'>Change Password</a>

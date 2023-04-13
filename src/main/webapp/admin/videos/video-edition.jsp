@@ -218,7 +218,7 @@
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
-			<jsp:include page="/admin/videos/VideoContent/VEdition.jsp"></jsp:include>
+			<jsp:include page="/admin/videos/VideoContent/VEdition.jsp"/>
 		</div>
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">

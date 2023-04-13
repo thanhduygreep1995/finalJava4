@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalog-Z About page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../css/templatemo-style.css">
+    <link rel="stylesheet" href='<c:url value="/css/bootstrap.min.css"/>'>
+    <link rel="stylesheet" href='<c:url value="/fontawesome/css/all.min.css"/>'>
+    <link rel="stylesheet" href='<c:url  value="/css/templatemo-style.css"/>'>
 <!--
     
 TemplateMo 556 Catalog-Z
@@ -19,14 +21,7 @@ https://templatemo.com/tm-556-catalog-z
 -->
 </head>
 <body>
-    <!-- Page Loader -->
-    <div id="loader-wrapper">
-        <div id="loader"></div>
-
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-
-    </div>
+   
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
@@ -44,26 +39,40 @@ https://templatemo.com/tm-556-catalog-z
                 <li class="nav-item">
                     <a class="nav-link nav-link-2" href="videos.html">Video yêu Thích</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-3" aria-current="page" href="register.html">Đăng Ký</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-4" href="register.html">Đăng Nhập</a>
-                </li>
+ 				<c:if test="${!isLogin }">
+	                <li class="nav-item">
+	                    <a class="nav-link nav-link-3" href='<c:url value="/view/register.jsp"/>'>Đăng Ký</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link nav-link-4 active" aria-current="page" href='<c:url value="LoginServ"/>'>Đăng Nhập</a>
+	                </li>
+                </c:if>
+                <c:if test="${isLogin}">
+                	<li class="nav-item">
+	                    <a class="nav-link nav-link-3" href='<c:url value="EditProfileServ"/>'>Edit Profile</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link nav-link-4" aria-current="page" href='<c:url value="/view/change-password.jsp"/>'>Change Password</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link nav-link-5" href='<c:url value="LogOffServ"/>'>Log Off</a>
+	                </li>
+                </c:if>
             </ul>
             </div>
         </div>
     </nav>
     <article class="mb-3">
-        <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="../img/hero.jpg"></div>
+        <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src='<c:url value="/img/hero.jpg"/>'></div>
         <div class="container">
             <div class="row d-flex justify-content-center">
-                <form action="" class="mt-3 border border-2 rounded-3" style="width: 40rem;">
+                <form action="EditProfileServ" class="mt-3 border border-2 rounded-3" style="width: 40rem;"method="post">
+                    <jsp:include page="/view/common/AlertNotice.jsp"/>
                     <div class="text-center" style="font-size: 28px;"><b>Cập Nhật Tài Khoản</b></div>
                     
                     <div class="mb-3 mt-3">
                       <label for="username" class="form-label">Tên Tài Khoản</label>
-                      <input type="username" class="form-control" id="username" placeholder="Enter username" name="username">
+                      <input type="text" class="form-control" id="username" placeholder="Enter username" value="${user.username}" name="username">
                     </div>
                     <div class="mb-3">
                       <label for="pwd" class="form-label">Password</label>
@@ -71,11 +80,15 @@ https://templatemo.com/tm-556-catalog-z
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="name" class="form-label">Họ và Tên</label>
-                        <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+                        <input type="text" class="form-control" id="name" value="${user.name}" placeholder="Enter name" name="name">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="phone" class="form-label">Điện Thoại</label>
+                        <input type="text" class="form-control" id="phone" value="${user.phone}" placeholder="Enter your phone number" name="phone">
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        <input type="email" class="form-control" id="email"value="${user.email}" placeholder="Enter email" name="email">
                     </div>
                     <div class="mx-2 d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary mb-3 mx-2 "><b>Cập Nhật</b></button>
@@ -128,7 +141,7 @@ https://templatemo.com/tm-556-catalog-z
         </div>
     </footer>
     
-    <script src="../js/plugins.js"></script>
+    <script src='<c:url value="/js/plugins.js"/>'></script>
     <script>
         $(window).on("load", function() {
             $('body').addClass('loaded');

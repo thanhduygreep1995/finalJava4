@@ -75,7 +75,7 @@ https://templatemo.com/tm-556-catalog-z
         <div class="row tm-mb-90">            
             <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
                 <video autoplay muted loop controls id="tm-video">
-                    <source src='<c:url value="/video/${item.image}"/>' type="video/mp4">
+                    <source src='<c:url value="/video/hero.mp4"/>' type="video/mp4">
                 </video>  
             </div>
             <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
